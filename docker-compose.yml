@@ -1,0 +1,34 @@
+version: "2"
+
+services:
+  client:
+    build: ./zebra-client
+    ports:
+      - "443:443"
+    networks:
+      vnet:
+        ipv4_address: 172.18.18.2
+  api:
+    build: ./zebra-api
+    ports:
+      - "8080:8080"
+    env_file:
+      - ./api.env
+    networks:
+      vnet:
+        ipv4_address: 172.18.18.3
+  redis:
+    image: redis
+    command: redis-server
+    networks:
+      vnet:
+        ipv4_address: 172.18.18.4
+
+networks:
+  vnet:
+    driver: bridge
+    ipam:
+      driver: default
+      config:
+      - subnet: 172.18.18.1/24
+        gateway: 172.18.18.1
