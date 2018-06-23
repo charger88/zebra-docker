@@ -10,8 +10,6 @@ services:
         ipv4_address: 172.18.18.2
   api:
     build: ./zebra-api
-    ports:
-      - "8080:8080"
     env_file:
       - ./api.env
     networks:
