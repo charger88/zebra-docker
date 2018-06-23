@@ -10,7 +10,7 @@ RUN git clone https://github.com/charger88/zebra-client.git
 ADD default.conf /etc/nginx/conf.d/default.conf
 ADD cmd.sh /
 
-EXPOSE 8080
+EXPOSE 443
 
 WORKDIR /zebra-client
 CMD ["/bin/bash", "/cmd.sh"]
