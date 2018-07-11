@@ -1,5 +1,4 @@
 #!/bin/bash
-git pull
 CONFIGFILE=/config/config.yaml
 CONFIGLINK=/zebra-api/config/config.yaml
 if [ -f $CONFIGFILE ]; then

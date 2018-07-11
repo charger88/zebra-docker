@@ -6,11 +6,13 @@ RUN apt-get update
 RUN apt-get install -y git
 
 RUN git clone https://github.com/charger88/zebra-client.git
+WORKDIR /zebra-client
+RUN git pull
+RUN git checkout tags/1.0.0
 
 ADD default.conf /etc/nginx/conf.d/default.conf
 ADD cmd.sh /
 
 EXPOSE 443
 
-WORKDIR /zebra-client
 CMD ["/bin/bash", "/cmd.sh"]

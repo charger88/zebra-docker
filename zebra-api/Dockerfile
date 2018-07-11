@@ -10,11 +10,12 @@ RUN go get github.com/go-yaml/yaml
 RUN go get github.com/mediocregopher/radix.v2/redis
 RUN go get golang.org/x/crypto/bcrypt
 RUN git clone https://github.com/charger88/zebra-api.git
+WORKDIR /zebra-api
+RUN git pull
+RUN git checkout tags/1.0.0
 
 ADD cmd.sh /
 
 EXPOSE 8080
-
-WORKDIR /zebra-api
 
 CMD ["/bin/bash", "/cmd.sh"]
