@@ -7,7 +7,7 @@ RUN apt-get install -y git
 
 RUN git clone https://github.com/charger88/zebra-client.git
 WORKDIR /zebra-client
-RUN (git pull && git checkout tags/1.0.1)
+RUN (git pull && git checkout tags/1.0.3)
 
 ADD default.conf /etc/nginx/conf.d/default.conf
 ADD cmd.sh /
